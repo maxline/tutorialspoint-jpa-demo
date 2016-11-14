@@ -1,4 +1,4 @@
-package com.tutorialspoint.jpademo;
+package com.tutorialspoint.jpademo.service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

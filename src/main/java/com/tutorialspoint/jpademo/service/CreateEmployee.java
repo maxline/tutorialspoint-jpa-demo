@@ -1,4 +1,4 @@
-package com.tutorialspoint.jpademo;
+package com.tutorialspoint.jpademo.service;
 
 import com.tutorialspoint.jpademo.domain.Employee;
 
@@ -9,21 +9,18 @@ import javax.persistence.Persistence;
 /**
  * @author Sergey Mikhluk.
  */
-public class UpdateEmployee {
+public class CreateEmployee {
     public static void main(String[] args) {
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-        Employee employee = entityManager.find(Employee.class, 1201);
 
-        //before update
-        System.out.println(employee);
-        employee.setSalary(4500);
+        //if you set eId manually then you need to comment line @GeneratedValue(strategy = GenerationType.AUTO)
+        Employee employee = new Employee(1201, "Gopal", 4000, "Technical manager");
+
+        entityManager.persist(employee);
         entityManager.getTransaction().commit();
-
-        //after update
-        System.out.println(employee);
         entityManager.close();
         emFactory.close();
     }
