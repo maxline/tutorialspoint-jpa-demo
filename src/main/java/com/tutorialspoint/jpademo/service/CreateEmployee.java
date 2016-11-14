@@ -21,6 +21,7 @@ public class CreateEmployee {
 
         entityManager.persist(employee);
         entityManager.getTransaction().commit();
+
         entityManager.close();
         emFactory.close();
     }

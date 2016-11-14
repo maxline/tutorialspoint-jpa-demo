@@ -1,14 +1,13 @@
 package com.tutorialspoint.jpademo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author Sergey Mikhluk.
  */
 @Entity
+@NamedQuery(query = "select e from Employee e where e.eId = :id",
+        name = "find employee by id")
 public class Employee {
     @Id
     //@GeneratedValue(strategy = GenerationType.AUTO)

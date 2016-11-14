@@ -26,5 +26,8 @@ public class ScalarAndAggregateFunctions {
         Query query1 = entityManager.createQuery("Select MAX(e.salary) from Employee e");
         Double result = (Double) query1.getSingleResult();
         System.out.println("Max Employee Salary :" + result);
+
+        entityManager.close();
+        emFactory.close();
     }
 }
